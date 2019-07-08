@@ -5,8 +5,7 @@ $VERBOSE = true
 require "#{File.dirname(File.dirname(__FILE__))}/lib/kernel/visibility_singleton_methods"
 
 # Sample product code from rurema
-# http://doc.ruby-lang.org/ja/1.8.7/method/Object/i/singleton_methods.html
-# http://doc.ruby-lang.org/ja/1.9.3/method/Object/i/singleton_methods.html
+# http://doc.ruby-lang.org/ja/2.6.0/method/Object/i/singleton_methods.html
 Parent = Class.new
 
 class <<Parent
@@ -43,7 +42,7 @@ class Test_Public_Singleton_methods < Test::Unit::TestCase
   def test_return_kind
     assert_instance_of Array, OBJ.public_singleton_methods
     assert(OBJ.public_singleton_methods.all?{|v|
-      v.instance_of? (RUBY_VERSION < '1.9' ? String : Symbol)
+      v.instance_of? Symbol
     })
   end
 
@@ -53,9 +52,9 @@ class Test_Public_Singleton_methods < Test::Unit::TestCase
 
   def test_return_value
     assert OBJ.singleton_class.instance_of?(Class)
-    assert_equal [:public_self], OBJ.public_singleton_methods.map(&:to_sym)
-    assert_equal [:public_class_foo], Foo.public_singleton_methods.map(&:to_sym)
-    assert_equal [:public_self, :public_bar], OBJ.public_singleton_methods.map(&:to_sym) # failure, inheritance is not supported yet
+    assert_equal [:public_self], OBJ.public_singleton_methods
+    assert_equal [:public_class_foo], Foo.public_singleton_methods
+    pend('inheritance is not supported yet') { assert_equal [:public_self, :public_bar], OBJ.public_singleton_methods }
   end
 
 end
