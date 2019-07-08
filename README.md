@@ -19,7 +19,7 @@ require 'kernel/visibility_singleton_methods'
 Requirements
 -------------
 
-* Ruby - 1.8.7 or later
+* Ruby - 2.5 or later
 
 Install
 -------
