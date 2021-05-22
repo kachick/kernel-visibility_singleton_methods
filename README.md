@@ -1,11 +1,11 @@
 kernel-visibility_singleton_methods
 ========================================
 
-Description
------------
+* ***This repository is archived***
+* ***No longer maintained***
+* ***I didn't publish this project to https://rubygems.org as a gem***
 
-Features
---------
+https://github.com/kachick/method_visibility or https://github.com/kachick/visibility_predicates might take this project...
 
 Usage
 -----
@@ -20,17 +20,6 @@ Requirements
 -------------
 
 * Ruby - 2.5 or later
-
-Install
--------
-
-Build Status
--------------
-
-
-Link
-----
-
 
 License
 --------
